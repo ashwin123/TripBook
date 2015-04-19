@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type= "text/javascript">
+	function init(){
+
+		$.ajax({
+			type: "GET",
+			url: "http://localhost/test.php",
+			dataType: "json",
+			success: function(data){
+				console.log(data);
+				populateTable(data);
+			},
+			error: function(xhr, status, error){
+				console.log(xhr);
+				console.log(error);
+			}
+		});
+	}
+
+	function populateTable(data){
+		
+		var json = data;
+
+		var plan= json.plan;
+		var newPlan= json.newplan;
+		var cost= json.cost;
+		var newCost= json.newcost;
+		var extraPlaces= json.extraplaces;
+
+		displayPlan(plan, cost);
+		displayNewplan(newPlan, newCost);
+		displayExtraPlaces(extraPlaces);
+
+	}
+
+	function displayPlan(plan, cost){
+
+		var str= "";
+		for(var i in plan){
+			for(var j=0; j< plan[i].length; j++){
+				str= str+ "<tr><td>"+ i.substr(i.length - 1)
+				+ "</td><td>"+ plan[i][j].place
+				+ "</td><td>"+ plan[i][j].sttime
+				+ "</td><td>"+ plan[i][j].endtime
+				+ "</td><td>"+ plan[i][j].priority
+				+ "</td><td>"+ plan[i][j].cost+ "</td></tr>";
+			}
+		}
+
+		$("#tab1").append(str);
+		str= "";
+		str= "<h3>Total cost= "+cost+"</h3>";
+		$("#div1").append(str);
+	}
+
+	function displayNewplan(newPlan, newCost){
+
+		var str= "";
+		for(var i in newPlan){
+			for(var j=0; j< newPlan[i].length; j++){
+				str= str+ "<tr><td>"+ i.substr(i.length - 1)
+				+ "</td><td>"+ newPlan[i][j].place
+				+ "</td><td>"+ newPlan[i][j].sttime
+				+ "</td><td>"+ newPlan[i][j].endtime
+				+ "</td><td>"+ newPlan[i][j].priority
+				+ "</td><td>"+ newPlan[i][j].cost+ "</td></tr>";
+			}
+		}
+
+		$("#tab2").append(str);
+		str= "";
+		str= "<h3>Total cost= "+newCost+"</h3>";
+		$("#div2").append(str);
+
+	}
+
+	function displayExtraPlaces(extraPlaces){
+
+		var array= eval(extraPlaces);
+
+		var str= "";
+		for(var i=0; i<array.length; i++){
+			str= str+ "<li>"+array[i]+"</li>";
+		}
+
+		$("#order").append(str);
+	}
+
+</script>
+</head>
+<body onload= "init()">
+	<h1>ITINERARY AND BUDGET PLANNING</h1>
+
+	<div id= "div1">
+		<h3>Initial Plan</h3>
+		<table id="tab1" border cellspacing= "0px" width= "90%">
+			<tr>
+				<th>Day</th>
+				<th>Place</th>
+				<th>Start time</th>
+				<th>End time</th>
+				<th>Priority</th>
+				<th>Cost</th>
+			</tr>
+		</table>
+
+	</div>
+
+	<div id= "div2">
+		<h3>Reformed Budget Plan</h3>
+		<table id="tab2" border cellspacing= "0px" width= "90%">
+			<tr>
+				<th>Day</th>
+				<th>Place</th>
+				<th>Start time</th>
+				<th>End time</th>
+				<th>Priority</th>
+				<th>Cost</th>
+			</tr>
+		</table>
+	</div>
+
+	<div id= "div3">
+		<h3>Places that cannot be visited</h3>
+		<ol id= "order">
+
+		</ol>
+	</div>
+
+</body>
+</html>
