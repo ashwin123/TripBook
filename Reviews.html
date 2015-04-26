@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Reviews</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/icomoon-social.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="css/leaflet.css" />
+		<!--[if lte IE 8]>
+		    <link rel="stylesheet" href="css/leaflet.ie.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="css/main.css">
+
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+   <body>
+
+    <!-- Navigation -->
+     <!-- Navigation & Logo-->
+        <div class="mainmenu-wrapper">
+	        <div class="container">
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color:#607D8B;">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+	   <ul class="nav navbar-nav"><li>
+	   <a href="demo.html" style="color:#fff;background-color:#00C853"  >TripBook-Demo</a>
+	   </li></ul>
+      </div>
+
+        <ul class="nav navbar-nav">
+		
+         
+		  <li  ><a  href="ItenaryPlanner.html" style="color:#fff"  >ItineraryPlanner</a></li>
+		  <li  ><a style="color:#fff" href="TripDiary.html" >TripDiary</a></li>
+		  <li class="active"><a  href="Reviews.html" >Reviews</a></li>
+        <li><a href="page-login.php" align="right" style="color:#fff;background-color:#03A9F4">Login</a></li>
+		
+         
+        </ul>
+    </nav>
+<br>
+	        	<div class="menuextras">
+					<div class="extras">
+						<ul>
+							
+			        		<li><a href="page-login.php">Login</a></li>
+			        	</ul>
+					</div>
+		        </div>
+		        <nav id="mainmenu" class="mainmenu">
+					<ul>
+						<li class="logo-wrapper"><a href="index.php"><img src="img/icon2.jpg" alt="Tripbook Icon"></a></li>
+						<li >
+							<a href="demo.html">Home</a>
+						</li>
+						<li>
+							<a href="ItenaryPlanner.html"><img src="img/service-icon/ruler.png" alt="Service 4">Itinerary Planner</a>
+						</li>
+
+
+						<li>
+							<a href="TripDiary.html"><img src="img/service-icon/diary.jpg" alt="Service 1">TripDiary</a>
+						</li>
+
+						<li class="active">
+
+							<a href="Reviews.html"><img src="img/service-icon/chat.png" alt="Service 3">Reviews</a>
+						</li>
+
+						
+						
+					</ul>
+				</nav>
+			</div>
+		</div>
+	<div align="center">
+		<h4 style="color:#A3C1AD">Welcome to <b>Review page</b>- Here you can write review about places,and you can add new places.
+			<br>Please <a href="page-login.php">login</a> in order to use this features.
+			</h4>
+			</div>
+    <!-- Page Content -->
+	<br>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead">PLACES</p>
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">MYSORE</a>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="thumbnail">
+                    <img class="img-responsive" src="img/mysore.jpg" alt="">
+                    <div class="caption-full">
+                        <h4><a href="#">MYSORE</a>
+                        </h4>
+                        <p>A must see. Amazingly opulent and dazzling interiors with some quirky points of interest. Definitely worth using the free to foreigners audio tour, as it's excellently put together complete with sound effects! Just make sure you get a fully charged battery pack from the audio guide stall, or else it may suddenly pack up on Number 11 like ours did, when there's 21 items of interest on the guide! Then you're just wandering round looking at incomprehensible Indian things, which isn't as good! As usual, cameras are forbidden and you have to leave them in safe custody while you go round, but that didn't stop hundreds of Indian teenagers on school trips whipping out their smart phones to take selfies inside the palace, so you could sneak the odd photo before being shouted at by one of the guards. Although Sunday is heaving with visitors there, its also the best time to go in the evening, to see the palace lit up from 7.00 - 7.45pm only. With 100,000 lightbulbs, its too costly to extend the time, but is a breathtaking sight while it lasts. Very much enhanced the night we were there by a charmingly tinny brass band playing sprightly Indian tunes in front of the palace.</p>
+                        
+                        
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">3 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            4.0 stars
+                        </p>
+                    </div>
+                </div>
+
+                <div class="well" id="revlist">
+
+                    <div class="text-right">
+                        <a class="btn btn-success" id="addrev" onclick="alert('Login Required');">Leave a Review</a>
+                    </div>
+					<div class="text-right" id="writerev" style="display:none">
+						<br><textarea id="revtext" rows=3 cols=110 placeholder="Enter your review here...."></textarea>
+							<div class="col-md-12">
+								<span class="glyphicon glyphicon-star-empty" id="1" onclick="ratings(event)"></span>
+								<span class="glyphicon glyphicon-star-empty" id="2" onclick="ratings(event)"></span>
+								<span class="glyphicon glyphicon-star-empty" id="3" onclick="ratings(event)"></span>
+								<span class="glyphicon glyphicon-star-empty" id="4" onclick="ratings(event)"></span>
+								<span class="glyphicon glyphicon-star-empty" id="5" onclick="ratings(event)"></span>
+							</div>
+							<div class="text-right">
+								<a class="btn btn-success" id="cancrev">cancel</a>
+								<a class="btn btn-success" id="postrev">Post</a>
+							</div>
+					</div>
+
+                    <hr>
+
+                    <div class="row" id="added" style="display:none">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            Anonymous
+                            <span class="pull-right">1 days ago</span>
+                            <p id="txt">This product was great in terms of quality. I would definitely buy another!</p>
+                        </div>
+                    </div>
+
+                   
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            Anonymous
+                            <span class="pull-right">12 days ago</span>
+                            <p>This is magnificent. A must visit place in Mysore. Palace has collection of several precious items of royal family and you can truly feel Royal once inside it!!</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            Anonymous
+                            <span class="pull-right">15 days ago</span>
+                            <p>apparently the best time to go is during Dusshera but we went during the rains. the palace is majestic looking from the outside. definitely worth a visit (budget ~2hrs). the security is a bit itchy kind not allowing phones or cameras inside but noticed that just 20 bucks gets you cut the corners..</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.bxslider.js"></script>
+    <script src="js/jquery.fitvids.js"></script>
+    <script src="js/jquery.sequence.js"></script>
+    <script src="js/jquery.sequence-min.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	
+	
+        
+
+       
+
+
+
+
+ <div class="footer">
+	    	<div class="container">
+		    	<div class="row">
+
+		    		<div class="col-footer col-md-3 col-xs-6">
+		    			<h3>Navigate</h3>
+		    			<ul class="no-list-style footer-navigate-section">
+		    				<li><a href="index.php">Home</a></li>
+		    				<li><a href="ItineraryPlanner.php">Itinerary Planner</a></li>
+		    				<li><a href="TripDiary.php">Trip Diary</a></li>
+		    				<li><a href="indexreview.php">Reviews</a></li>
+		    			
+		    			</ul>
+		    		</div>
+		    		
+		    		<div class="col-footer col-md-4 col-xs-6">
+		    			<h3>Contacts</h3>
+		    			<p class="contact-us-details">
+	        				<b>Address:</b> Pesit,BSK stage 3,Bangalore,Karnataka,India<br/>
+	        				<b>Phone:</b> +91 1234567890<br/>
+	        				<b>Email:</b> <a href="mailto:getintoutch@pes.edu">getintoutch@pes.edu</a>
+	        			</p>
+		    		</div>
+		    		<div class="col-footer col-md-2 col-xs-6">
+		    			<h3>Stay Connected</h3>
+		    			<ul class="footer-stay-connected no-list-style">
+		    				<li><a href="#" class="facebook"></a></li>
+		    				<li><a href="#" class="twitter"></a></li>
+		    				<li><a href="#" class="googleplus"></a></li>
+		    			</ul>
+		    		</div>
+		    	</div>
+		    	<div class="row">
+		    		<div class="col-md-12">
+		    			<div class="footer-copyright">&copy; 2015 TripBook. All rights reserved.</div>
+		    		</div>
+		    	</div>
+		    </div>
+	    </div>
+
+        <!-- Javascripts -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+        <script src="js/jquery.fitvids.js"></script>
+        <script src="js/jquery.sequence-min.js"></script>
+        <script src="js/jquery.bxslider.js"></script>
+        <script src="js/main-menu.js"></script>
+        <script src="js/template.js"></script>
+
+
+	</body>
+
+</html>

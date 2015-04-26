@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+	<style>
+	hr { 
+	color:#ffffff;
+   
+    border-width: 5px;
+}
+.thumbnail {
+    word-wrap: break-word;  
+}
+	</style>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>TripDiary</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/icomoon-social.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="css/leaflet.css" />
+		
+		<!--[if lte IE 8]>
+		    <link rel="stylesheet" href="css/leaflet.ie.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="css/main.css">
+	
+
+        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+		<script>
+		function delconfirm()
+		{
+		return confirm("Are you sure you want to delete this content?");
+		}
+		</script>
+		
+    </head>
+    <body>
+	
+	
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        
+
+        <!-- Navigation & Logo-->
+        <div class="mainmenu-wrapper">
+	        <div class="container">
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color:#607D8B;">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+	   <ul class="nav navbar-nav"><li>
+	   <a href="demo.html" style="color:#fff;background-color:#00C853"  >TripBook-Demo</a>
+	   </li></ul>
+      </div>
+
+        <ul class="nav navbar-nav">
+		
+         
+		  <li  ><a  href="ItenaryPlanner.html" style="color:#fff"  >ItineraryPlanner</a></li>
+		  <li class="active" ><a  href="" >TripDiary</a></li>
+		  <li><a style="color:#fff" href="Reviews.html" >Reviews</a></li>
+		<li><a href="Reviews.html" align="right" style="color:#fff;background-color:#69F0AE">NEXT</a></li>
+        <li><a href="page-login.php" align="right" style="color:#fff;background-color:#03A9F4">Login</a></li>
+		
+         
+        </ul>
+    </nav>
+<br>
+	        	<div class="menuextras">
+					<div class="extras">
+						
+						<ul>
+							<li>
+							
+							</li>
+							<li> <a href = "page-login.php">Login</a></li>
+			        		
+			        	</ul>
+					</div>
+		        </div>
+		        <nav id="mainmenu" class="mainmenu">
+					<ul>
+						<li class="logo-wrapper"><a href="index.php"><img src="img/icon2.jpg" alt="Tripbook Icon"></a></li>
+						<li >
+							<a href="demo.html">Home</a>
+						</li>
+						<li>
+							<a href="ItenaryPlanner.html"><img src="img/service-icon/ruler.png" alt="Service 4">Itinerary Planner</a>
+						</li>
+
+
+						<li class="active">
+							<a href="TripDiary.html"><img src="img/service-icon/diary.jpg" alt="Service 1">TripDiary</a>
+						</li>
+
+						<li>
+							<a href="Reviews.html"><img src="img/service-icon/chat.png" alt="Service 3">Reviews</a>
+						</li>
+
+
+						
+						
+					</ul>
+				</nav>
+			</div>
+		</div>
+<div align="center">
+<h4 style="color:#A3C1AD">Welcome to <b>TripDiary</b>- Here you can store any numbers of your trip photos with place and your Experience.
+			<br>Please <a href="page-login.php">login</a> in order to use this features.
+			</h4>
+</div>
+	
+
+<!-- Tripdiary  - START -->
+		
+
+			<div class="container" align="center">
+			
+			<div class="row">
+
+        <p></p>
+		<button type="button" class="btn btn-info btn-lg" style="background-color:#007FFF" data-toggle="modal" data-target="#myModal">Add New<img src="img/add.png" style="margin-left:0.5em"></button>
+        
+		<div class="modal zoom" id="myModal" role="dialog">
+    <div class="modal-dialog">
+		<div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Login Required</h4>
+        </div>
+        <div class="modal-body">
+          
+            <div  align="center"  style="padding:5px;width:90%">
+			<h3><a href="page-login.php">Click Here to Login</a></h3>
+			</div>
+			<div class="portfolio-image" >
+								<a href="page-login.php"><img src="img/takeademo.png"></a>
+             </div>
+             
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+	  </div>
+	  </div>
+      
+
+  
+		<h1><hr></h1>
+		
+				
+               
+				<div class="col-md-4">
+                    <div style="cursor: default;text-decoration:none; box-shadow:0  0 15px #888888;" class="thumbnail">
+                        
+						<h3 style="text-align:center;color:#808080; border-bottom 0.5px solid #3EB489; " >Welcome to Tripdiary</h3>
+                        <hr>
+						<img class="img-responsive" style="border:2px solid #808080" src="img/takedemo.JPG">
+						
+						<h4 id="hide">Hello</h4>
+						<h5>20-04-2015
+				</h5>
+                    </div>
+					</div>
+         
+	
+				
+			
+			
+			
+        
+
+
+<hr>
+</div><!-- content -->
+			
+			
+				
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="footer">
+	    	<div class="container">
+		    	<div class="row">
+
+		    		<div class="col-footer col-md-3 col-xs-6">
+		    			<h3>Navigate</h3>
+		    			<ul class="no-list-style footer-navigate-section">
+		    				<li><a href="index.php">Home</a></li>
+		    				<li><a href="ItenaryPlanner.php">Itenary Planner</a></li>
+		    				<li><a href="Tripdiary.php">Trip Diary</a></li>
+		    				<li><a href="Reviews.php">Reviews</a></li>
+		    				
+		    			</ul>
+		    		</div>
+		    		
+		    		<div class="col-footer col-md-4 col-xs-6">
+		    			<h3>Contacts</h3>
+		    			<p class="contact-us-details">
+	        				<b>Address:</b> Pesit,BSK stage 3,Bangalore,Karnataka,India<br/>
+	        				<b>Phone:</b> +91 1234567890<br/>
+	        				<b>Email:</b> <a href="mailto:getintoutch@pes.edu">getintoutch@pes.edu</a>
+	        			</p>
+		    		</div>
+		    		<div class="col-footer col-md-2 col-xs-6">
+		    			<h3>Stay Connected</h3>
+		    			<ul class="footer-stay-connected no-list-style">
+		    				<li><a href="#" class="facebook"></a></li>
+		    				<li><a href="#" class="twitter"></a></li>
+		    				<li><a href="#" class="googleplus"></a></li>
+		    			</ul>
+		    		</div>
+		    	</div>
+		    	<div class="row">
+		    		<div class="col-md-12">
+		    			<div class="footer-copyright">&copy; 2015 TripBook. All rights reserved.</div>
+		    		</div>
+		    	</div>
+		    </div>
+	    </div>
+
+        <!-- Javascripts -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+        <script src="js/jquery.fitvids.js"></script>
+        <script src="js/jquery.sequence-min.js"></script>
+        <script src="js/jquery.bxslider.js"></script>
+        <script src="js/main-menu.js"></script>
+        <script src="js/template.js"></script>
+
+
+
+	</body>
+
+</html>
