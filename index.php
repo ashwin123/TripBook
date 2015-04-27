@@ -85,11 +85,18 @@ function redirect($url, $statusCode = 303)
 						
 					</ul>
 				</nav>
-			</div>
-		</div>
 
-	<form action="search.php" method="post">
-		<label style="position:relative;margin-left:900px;"><input type="text" placeholder="Place Name" name="place"/>
+			</div>
+
+		</div>
+	
+
+
+		<div align="right">
+			<form action="search.php" method="post">
+		<label >
+
+		<input type="text" placeholder="Place Name" name="place" required/>
 
 		
 		<button type="submit" class="btn btn-info btn-lg">
@@ -97,6 +104,9 @@ function redirect($url, $statusCode = 303)
          </button>
          </label>
          </form>
+         </div>
+
+
 		
 
         <!-- Homepage Slider -->

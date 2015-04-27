@@ -1,8 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script type= "text/javascript">
+	<script type="text/javascript" src="jsPDF-master/jspdf.js"></script>
+	<script type="text/javascript" src="jsPDF-master/jspdf.plugin.addimage.js"></script>
+	<script type="text/javascript" src="jsPDF-master/jspdf.plugin.cell.js"></script>
+	<script type="text/javascript" src="jsPDF-master/jspdf.plugin.from_html.js"></script>
+	<script type="text/javascript" src="jsPDF-master/jspdf.plugin.ie_below_9_shim.js"></script>
+	<script type="text/javascript" src="jsPDF-master/jspdf.plugin.javascript.js"></script>
+	<script type="text/javascript" src="jsPDF-master/jspdf.plugin.sillysvgrenderer.js"></script>
+	<script type="text/javascript" src="jsPDF-master/jspdf.plugin.split_text_to_size.js"></script>
+	<script type="text/javascript" src="jsPDF-master/jspdf.plugin.standard_fonts_metrics.js"></script>
+	<script type="text/javascript" src="jsPDF-master/jspdf.PLUGINTEMPLATE.js"></script>
+	<script type="text/javascript" src="jsPDF-master/libs/FileSaver.js/FileSaver.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type= "text/javascript">
+
+	$(document).ready(function(){
+        var specialElementHandlers = {
+            '#editor': function (element,renderer) {
+                return true;
+        	}
+    	};
+    	$('#pdf').click(function () {
+            var doc = new jsPDF();
+            var source = $('#target').html();
+            var specialElementHandlers = {
+                '#bypassme': function (element, renderer) {
+                    return true;
+                }
+            };
+            doc.fromHTML(source, 15, 15, {
+                'width': 200,'elementHandlers': specialElementHandlers
+            });
+            doc.output("dataurlnewwindow");
+        });
+    });
+
+
+
 	function init(){
 
 		$.ajax({
@@ -20,41 +56,6 @@
 		});
 	}
 
-	/*function populateFile(){
-		var arr= JSON.stringify({place: "Mysore"});
-		$.ajax({
-			type: "POST",
-			url: "http://localhost/cgi-bin/saveList.py",
-			data: arr,
-			dataType: "html",
-			success: function(data){
-				console.log(data);
-				callFilePhp(data);
-			},
-			error: function(xhr, status, error){
-				console.log(xhr);
-				console.log(status);
-				console.log(error);
-			}
-		});
-	}
-
-	function callFilePhp(data){
-		$.ajax({
-			type: "POST",
-			url: "http://localhost/file.php",
-			data: JSON.stringify({data: data}),
-			dataType: "json",
-			success: function(){
-				console.log("Success");
-			},
-			error: function(xhr, status, error){
-				console.log(xhr);
-				console.log(error);
-			}
-		});
-	}
-*/
 	function populateTable(data){
 		
 		var json = data;
@@ -131,7 +132,7 @@
 
 </script>
 </head>
-<body onload= "init()">
+<body onload= "init()" id= "target">
 	<h1>ITINERARY AND BUDGET PLANNING</h1>
 
 	<div id= "div1">
@@ -169,6 +170,11 @@
 
 		</ol>
 		<div id= "altord"></div>
+	</div>
+
+	<br><br>
+	<div>
+		<button id= "pdf">Generate PDF</button>
 	</div>
 
 </body>

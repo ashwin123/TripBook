@@ -379,7 +379,7 @@ function redirect($url, $statusCode = 303)
 			var d = new Date();
 			var n = d.getTime();
 			var timeDiff = Math.abs(d.getTime() - timestamp);
-			var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+			var diffDays = Math.floor(timeDiff / (1000 * 3600 * 24)); 
 			revstars[5].innerHTML=revstars[5].innerHTML.replace("0", diffDays);
 			revlist.insertBefore(hr1, ins);
 			revlist.insertBefore(rev, hr1);
@@ -433,8 +433,10 @@ function redirect($url, $statusCode = 303)
 			divs = rev.getElementsByTagName("div");
 			var d = new Date();
 			var n = d.getTime();
+			usr1 = <?php echo json_encode($_SESSION['username2']);?>;
+			//alert(usr1);
 			usr=<?php echo "'$uname'"?>;
-			divs[0].innerHTML = divs[0].innerHTML.replace("Anonymous",usr);
+			divs[0].innerHTML = divs[0].innerHTML.replace("Anonymous",usr1);
 			var arr= {datarev: para[0].innerHTML, city: cityname, ratings: countrate, timestamp: n};
 			
 			$.ajax({

@@ -1,13 +1,35 @@
 <?php
-	/*$place=$_POST['place'];
+
+	// checking whether the user is logged in or not
+	session_start();
+
+	error_reporting (E_ALL ^ E_NOTICE);
+	if(isset($_SESSION['username']))
+	{
+		echo "<p style = 'background-color:white; margin:0; padding:0;'><b>Welcome, ";
+    	echo $_SESSION['username2'];
+    	echo "</b>";
+		//echo "<div style='clear:right;background-color:white; margin:0; padding:0; float:right;margin-bottom:25px;'></div>";
+	}
+
+
+	else
+	{
+		echo "<script>alert('you must be logged in first')</script>";
+		echo "<script type='text/javascript'> window.location.href='index.php'</script>";
+		die();
+	}
+
+
+	$place=$_POST['place'];
 	$days =$_POST['days'];
 	$date1=$_POST['date1'];
 	$date2=$_POST['date2'];
-*/
-	$place= "Mysore";
-	$days= "2";
-	$date1= "900";
-	$date2= "2000";
+
+	// $place= "Mysore";
+	// $days= "2";
+	// $date1= "900";
+	// $date2= "2000";
 
 	$_SESSION['day'] = $days;
 	$_SESSION['dateone']=$date1;
@@ -224,21 +246,21 @@
 	        	<div class="menuextras">
 					<div class="extras">
 						<ul>
-							<li>
+							<!-- <li>
 								<div class="dropdown choose-country">
 									<a class="#" data-toggle="dropdown" href="#"><img src="img/flags/in.png" alt="India"> INDIA</a>
 									
 								</div>
-							</li>
+							</li> -->
 			        		<li><a href="page-login.html">Login</a></li>
 			        	</ul>
 					</div>
 		        </div>
 		         <nav id="mainmenu" class="mainmenu">
 					<ul>
-						<li class="logo-wrapper"><a href="home.html"><img src="img/icon2.jpg" alt="Tripbook Icon"></a></li>
+						<li class="logo-wrapper"><a href="index.php"><img src="img/icon2.jpg" alt="Tripbook Icon"></a></li>
 						<li class="active">
-							<a href="home.html">Home</a>
+							<a href="index.php">Home</a>
 						</li>
 						<li>
 							<a href="ItenaryPlanner.html"><img src="img/service-icon/ruler.png" alt="Service 4">Itinerary Planner</a>

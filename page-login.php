@@ -1,7 +1,7 @@
 <?php
 		session_start();
 		if(isset($_SESSION['username'])){
-		redirect("index.php",0.0);
+		redirect("http://localhost/SEtest/index.php",0.0);
 	   
 		}	
 

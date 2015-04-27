@@ -5,9 +5,7 @@ session_start();
 error_reporting (E_ALL ^ E_NOTICE);
 if(isset($_SESSION['username']))
 {
-    echo "<p style = 'background-color:white; margin:0; padding:0;'><b>Welcome, ";
-    echo $_SESSION['username2'];
-    echo "</b>";
+    
     //echo "<div style='clear:right;background-color:white; margin:0; padding:0; float:right;margin-bottom:25px;'></div>";
 }
 
@@ -52,45 +50,49 @@ else
     <script src="js/template.js"></script>
 </head>
 <body>
-<!-- Navigation & Logo-->
-        <div class="mainmenu-wrapper">
+<div class="mainmenu-wrapper">
             <div class="container">
                 <div class="menuextras">
                     <div class="extras">
                         <ul>
                             
-                            <li><a href="page-login.php">Login</a></li>
+                            <li><?php echo "<b>Welcome, ".$_SESSION['username2']."</b>"; ?></li>
+                            <li>
+                            <a href="logout.php">Logout</a></li>
+
                         </ul>
                     </div>
                 </div>
                 <nav id="mainmenu" class="mainmenu">
                     <ul>
                         <li class="logo-wrapper"><a href="index.php"><img src="img/icon2.jpg" alt="Tripbook Icon"></a></li>
-                        <li >
+                        <li class="active">
                             <a href="index.php">Home</a>
                         </li>
                         <li>
-                            <a href="ItenaryPlanner.html">Itinerary Planner</a>
+                            <a href="ItenaryPlanner.php"><img src="img/service-icon/ruler.png" alt="Service 4">Itinerary Planner</a>
+                        </li>
+
+
+                        <li>
+                            <a href="TripDiary.php"><img src="img/service-icon/diary.jpg" alt="Service 1">TripDiary</a>
+                        </li>
+
+                        <li>
+                            <a href="indexreview.php"><img src="img/service-icon/chat.png" alt="Service 3">Reviews</a>
                         </li>
 
                         
-
-
-                        <li>
-                            <a href="TripDiary.php">TripDiary</a>
-                        </li>
-
-                        <li>
-                            <a href="indexreview.php">Reviews</a>
-                        </li>
-
                         
                     </ul>
                 </nav>
             </div>
         </div>
-<h1 id="placename"></h1>
+<div align="center">
 
+
+<h3>Search Results for ..<h1 id="placename"></h1> </h3>
+</div>
  <div class="section">
             <div class="container" id="maincontainer">
 

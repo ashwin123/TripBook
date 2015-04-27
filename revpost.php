@@ -6,7 +6,7 @@
 	
 	//starting the session of the user
 	session_start();
-	$uname= $_SESSION['username'];
+	$uname= $_SESSION['username2'];
 	
 	$data= $_POST['datarev'];
 	$city= $_POST['city'];
