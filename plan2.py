@@ -1,4 +1,4 @@
-#!/usr/bin python3
+#!/usr/bin/python2.7
 
 
 import math
@@ -77,8 +77,44 @@ def getDetails():
 		data.append(line)
 
 	details= ast.literal_eval(data[0])
+
+	for val in range(len(details['locations'])):
+		jsonVal= details['locations'][val]
+		if(type(jsonVal['duration'])!= int):
+			details['locations'][val]['duration']= int(jsonVal['duration']+ "00")
+
+		if(type(jsonVal['priority'])!= int):
+			details['locations'][val]['priority']= int(jsonVal['priority'])
+
+		if(type(jsonVal['cost'])!= int):
+			details['locations'][val]['cost']= int(jsonVal['cost'])
+
+		if(type(jsonVal['open'])!= int):
+			details['locations'][val]['open']= int(jsonVal['open'])
+
+		if(type(jsonVal['close'])!= int):
+			details['locations'][val]['close']= int(jsonVal['close'])
+
+
+		if(type(jsonVal['sttime'])!= int):
+			details['locations'][val]['sttime']= int(jsonVal['sttime'])
+
+
+		if(type(jsonVal['endtime'])!= int):
+			details['locations'][val]['endtime']= int(jsonVal['endtime'])
+
+		if(details['locations'][val]['open']!= 900):
+			details['locations'][val]['open']= int(str(details['locations'][val]['open'])+ "00")
+			details['locations'][val]['close']= int(str(details['locations'][val]['close'])+ "00")
+
+
 	noDays= int(data[1])
 	time= ast.literal_eval(data[2])
+
+	time[0]+= "00"
+	time[1]+= "00"
+	time[0]= int(time[0])
+	time[1]= int(time[1])
 	inputBudget= int(data[3])+500
 
 def distanceTime(loc1, loc2):
@@ -91,10 +127,6 @@ def bestFit():
 	#Main function which returns final result
 
 	getDetails()
-
-	for entry in temp:
-		if(entry['sttime']== 0):
-			entry['duration']+= distanceTime('currentLocation', entry)
 
 	popTemp()
 	calcInitIntervals()
@@ -146,7 +178,7 @@ def fitTimes():
 						result[k].append(d)
 						break
 
-					elif(inter[0]> entry['open'] and entry['open']+entry['duration']<= inter[1]):
+					elif(inter[0]+entry['duration']<= inter[1] and inter[0]+entry['duration'] <=entry['close']):
 						key=k
 						val=j
 						flag=1
@@ -251,17 +283,34 @@ def formatResult():
 
 	#List set subtraction
 	l= list(set(allplaces)- set(vplaces))
-	print l
+	if len(l)==0:
+		print "All places can be visited"
+	else:
+		print l
 
 def budgetPlanning():
 	global result
 	total= 0
+
+	days= sorted([k for k in result.keys()])
+	lst= []
+
+	
+
 	for k, v in result.items():
 		for val in v:
+			val['sttime']= str(val['sttime'])
+			val['sttime']= val['sttime'][:-2]+":"+val['sttime'][-2:]
+			val['endtime']= str(val['endtime'])
+			val['endtime']= val['endtime'][:-2]+":"+val['endtime'][-2:]
 			total+= val['cost']
 
 
-	json1= json.dumps(result, ensure_ascii=False)
+	for i in range(int(days[-1][-1])):
+		if(result.get(("Day"+str(i+1)), 'empty')!= 'empty'):
+			lst.append(result["Day"+str(i+1)])
+
+	json1= json.dumps(lst, ensure_ascii=False)
 
 	fp= open("temp1", "w")
 	fp.write(json1)
@@ -296,11 +345,21 @@ def budgetPlanning():
 
 def reformedBudgetPlanning():
 	total= 0
+
+	days= sorted([k for k in result.keys()])
+
+	lst= []
+
+
 	for k, v in result.items():
 		for val in v:
 			total+= val['cost']
 
-	json2= json.dumps(result, ensure_ascii=False)
+	for i in range(int(days[-1][-1])):
+		if(result.get(("Day"+str(i+1)), 'empty')!= 'empty'):
+			lst.append(result["Day"+str(i+1)])
+
+	json2= json.dumps(lst, ensure_ascii=False)
 
 	fp= open("temp2", "w")
 	fp.write(json2)

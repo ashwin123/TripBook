@@ -5,6 +5,9 @@
 
 	$output= explode("\n", $output);
 
+	$myfile= fopen("testing.data", "w");
+	fwrite($myfile, json_encode($output));
+
 	$plan = json_decode(file_get_contents('temp1')); 
 	$newplan = json_decode(file_get_contents('temp2'));
 
