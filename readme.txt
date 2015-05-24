@@ -12,5 +12,7 @@
 		Fields:title,exp,filepath,datetrip
 		exp -->USER EXPERIENCE
 		filepath-->PATH OF IMAGE
+
+		All files in py folder go into /usr/lib/cgi-bin
 		
 		Thank you!! :)
