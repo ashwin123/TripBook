@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<previews>
+
+    <preview
+        name="Config1"
+        activity="tripbook.main.MainActivity"
+        config="layout-ldltr-sw320dp-w320dp-h533dp-normal-long-port-notnight-hdpi-finger-keyssoft-nokeys-navhidden-nonav-800x480-v20"
+        device="4&quot; WVGA (Nexus S)"
+        devicestate="Portrait"
+        target="Android 4.4W"
+        theme="@style/MyCustomTheme" >
+    </preview>
+
+</previews>
